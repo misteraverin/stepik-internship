@@ -32,14 +32,14 @@ def lessons(lesson_id):
         response.status_code = 404
         return response
 
-    cached = cache.get(str(lesson_id))
+    cached = simple_cache.get(str(lesson_id))
 
     if not cached or cached[0] != date:
         steps = stepik.get_steps_id(lesson_id)
-        cache.set(str(lesson_id), (date, steps))
+        simple_cache.set(str(lesson_id), (date, steps))
     else:
         steps = cached[1]
-    return jsonify(steps)
+    return jsonify({"ids": steps})
 
 def main():
     app.run(threaded=True)
