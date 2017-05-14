@@ -12,7 +12,7 @@ pip install -r requirements.txt
 python server.py
 ```
 ## Тестирование
-Чтобы протестировать выполнить запуск приложения и в параллельном окне запустите:
+Чтобы протестировать  приложение:
 ```
 python server_tests.py
 ```
@@ -30,8 +30,6 @@ python server_tests.py
 
 Ответ:
 
-* `status` - статус ответа
-* `message` - текст status
 * `ids` - массив id степов
 
 # Замечания
