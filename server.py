@@ -16,8 +16,12 @@ def lessons(lesson_id):
         if lesson_id < 0:
             raise ValueError
         date = stepik.get_lesson_date(lesson_id)
-    except Exception, ValueError as e:
+    except ValueError as e:
         response = jsonify(status="Error", message="Invalid Lesson ID: "+lesson_id)
+        response.status_code = 404
+        return response
+    except requests.exceptions.HTTPError as e:
+        response = jsonify(status="Error", message="Can't find lesson"+lesson_id)
         response.status_code = 404
         return response
 
