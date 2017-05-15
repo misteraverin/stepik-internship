@@ -1,5 +1,6 @@
-import requests
 import datetime
+
+import requests
 
 
 class stepik_api():
